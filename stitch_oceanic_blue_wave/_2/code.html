@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abyssal &amp; Azure | 대구 해산물 맛집 가이드</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eceef0",
+                        "on-primary-container": "#6f88ad",
+                        "tertiary-fixed": "#baeaff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#afc8f0",
+                        "outline-variant": "#c4c6cf",
+                        "secondary-fixed": "#d5e3ff",
+                        "on-tertiary-fixed-variant": "#004d62",
+                        "on-tertiary-fixed": "#001f29",
+                        "secondary-fixed-dim": "#a7c8ff",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#00070b",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#2891b2",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface": "#f7f9fb",
+                        "primary-container": "#001f3f",
+                        "outline": "#74777f",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed": "#001b3b",
+                        "on-background": "#191c1e",
+                        "surface-container-high": "#e6e8ea",
+                        "on-primary-fixed": "#001c3a",
+                        "tertiary-fixed-dim": "#76d2f6",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#005eb2",
+                        "surface-tint": "#476083",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#4597fe",
+                        "on-surface-variant": "#43474e",
+                        "inverse-surface": "#2d3133",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#00222d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#004788",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d4e3ff",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "on-secondary-container": "#002e5d",
+                        "background": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "primary": "#000613",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#afc8f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "32px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Noto Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Noto Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["Noto Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Noto Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .wave-divider {
+            height: 20px;
+            width: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' fill='%23001f3f' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0c100 0 200 50 300 50s200-50 300-50 200 50 300 50 200-50 300-50v120H0V0z' opacity='0.05'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            background-size: 600px 20px;
+        }
+
+        #nav-drawer {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #nav-drawer.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant shadow-sm flex items-center justify-between px-margin-mobile h-16 w-full">
+<button class="active:opacity-80 transition-opacity" onclick="toggleDrawer()">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md-mobile font-bold text-primary">Abyssal &amp; Azure</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional close-up profile portrait of a sophisticated culinary explorer in a bright, modern setting. The lighting is crisp and natural, highlighting a friendly but expert expression. The aesthetic matches a high-end food and travel lifestyle magazine, with soft cool blue tones in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh4c60HXkawT7xoG7nRr4m5B53DXtvbKacL0kDcIfzsFLBdbeCKqW0o8sJ4L6G6tNL_iXJiu4ZbHp1bojGBig9XePpYFcddQ6SK2GI7MxcmiyqvfxZ4W8jd5-sZ02k4qldcPtbszKqMILL28qYndKQd9x7U2YnAlbPbXhCd4tHfNxEMa4fSKfHaWg7WUQ0BdZsHwLe-DIakVsf8O_2ljcpCUeLOdXBlnOVwjdgM80Gzrl7vDToUTP8"/>
+</div>
+</header>
+<!-- Navigation Drawer -->
+<div class="fixed inset-0 bg-black/50 z-[55] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] bg-surface-container-lowest flex flex-col h-full py-stack-md shadow-lg" id="nav-drawer">
+<div class="px-6 pb-8 border-b border-outline-variant mb-4">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-primary">Culinary Explorer</div>
+<div class="text-[12px] text-on-surface-variant">Premium Member</div>
+</div>
+</div>
+<div class="text-[12px] font-bold text-secondary uppercase tracking-widest">Oceanic Guide</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 bg-secondary-container text-on-secondary-container rounded-full px-4 py-3 mx-2 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span> Home
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 rounded-full transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span> Restaurants
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 rounded-full transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span> Local Tips
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 rounded-full transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="info">info</span> About Us
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant hover:bg-surface-container-high px-4 py-3 mx-2 rounded-full transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> Contact
+            </a>
+</nav>
+</aside>
+<main class="pt-16 pb-20">
+<!-- Hero Section -->
+<section class="relative h-[480px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLtQPg_K2jWlpwF9Z4rQFUyHEphBIiNQjk7BpPoQLuytMr25fONRw7IBeHcV4e_2mhNHSnq2tq57q04sAjfmHeozycyYBQElqu4U--3sPHNh0QAShdiFk9x4CPLAs9eEpPt8CGCOh28ibF6NsZDQKC5HYaslktZxY4LBJ2YiqQLpolm1bVOSeMQ7j-gIT8y-R9S_lWmV_czt-87WzIzAVab-P4DDMcXzglbPQ2sMnq-gjxl9EC5BVmznPz0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container via-primary-container/40 to-transparent"></div>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-end px-margin-mobile pb-10">
+<div class="inline-block bg-secondary text-on-secondary px-3 py-1 text-[10px] font-bold tracking-[0.2em] mb-4 self-start rounded-sm">
+                    DAEGU SEAFOOD GUIDE 2026
+                </div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-6 leading-tight">
+                    바다의 신선함,<br/>대구에서 만나다
+                </h1>
+<div class="flex flex-col gap-3">
+<button class="w-full bg-white text-primary-container font-bold py-4 rounded-xl shadow-lg active:scale-95 transition-transform flex items-center justify-center gap-2">
+                        맛집 둘러보기 <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full bg-transparent border border-white/50 text-white font-bold py-4 rounded-xl active:bg-white/10 transition-colors">
+                        가이드 다운로드
+                    </button>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-stack-lg px-margin-mobile bg-white">
+<div class="mb-stack-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Why Daegu Seafood?</h2>
+<div class="w-12 h-1 bg-secondary mb-6"></div>
+<p class="text-on-surface-variant leading-relaxed">
+                    내륙 도시 대구에서 즐기는 가장 신선한 바다의 맛. 산지 직송 시스템으로 유지되는 최고의 품질과 대구만의 독특한 해산물 문화를 경험해 보세요.
+                </p>
+</div>
+<div class="space-y-6 mt-8">
+<div class="flex items-start gap-4 p-5 bg-surface-container-lowest border border-outline-variant rounded-xl">
+<div class="bg-secondary-container/20 p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="temp_preferences_eco">temp_preferences_eco</span>
+</div>
+<div>
+<h3 class="font-bold text-primary mb-1">최상의 신선도 (Freshness)</h3>
+<p class="text-sm text-on-surface-variant">매일 새벽 동해와 남해에서 직송되는 해산물을 엄선하여 테이블까지 전달합니다.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-5 bg-surface-container-lowest border border-outline-variant rounded-xl">
+<div class="bg-secondary-container/20 p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+</div>
+<div>
+<h3 class="font-bold text-primary mb-1">우수한 접근성 (Accessibility)</h3>
+<p class="text-sm text-on-surface-variant">대구 전역 어디서든 30분 내외로 닿을 수 있는 검증된 맛집 네트워크를 구축했습니다.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-5 bg-surface-container-lowest border border-outline-variant rounded-xl">
+<div class="bg-secondary-container/20 p-3 rounded-full text-secondary">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div>
+<h3 class="font-bold text-primary mb-1">현지인 추천 (Local Tips)</h3>
+<p class="text-sm text-on-surface-variant">20년 이상 경력의 해산물 전문가들이 직접 발로 뛰어 찾아낸 숨은 명소를 소개합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Wave Divider -->
+<div class="wave-divider"></div>
+<!-- Filter Bar -->
+<section class="py-stack-md bg-surface">
+<div class="px-margin-mobile mb-4 flex items-center justify-between">
+<h2 class="font-bold text-primary">지역별 맛집 찾기</h2>
+<span class="text-xs text-secondary font-bold">필터 초기화</span>
+</div>
+<div class="flex overflow-x-auto gap-2 px-margin-mobile hide-scrollbar">
+<button class="flex-none px-6 py-2 bg-primary-container text-white rounded-full text-sm font-medium">전체</button>
+<button class="flex-none px-6 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-full text-sm font-medium">중구</button>
+<button class="flex-none px-6 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-full text-sm font-medium">수성구</button>
+<button class="flex-none px-6 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-full text-sm font-medium">달서구</button>
+<button class="flex-none px-6 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-full text-sm font-medium">동구</button>
+<button class="flex-none px-6 py-2 bg-white border border-outline-variant text-on-surface-variant rounded-full text-sm font-medium">북구</button>
+</div>
+</section>
+<!-- Restaurant List -->
+<section class="px-margin-mobile space-y-gutter pb-stack-lg">
+<!-- Card 1 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<div class="h-56 relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant, high-end food photograph of a premium sashimi platter at a luxury restaurant in Daegu. The assortment includes translucent slices of red snapper, fatty tuna, and fresh sea urchin, arranged artfully on a cold stone plate with shiso leaves and wasabi. The lighting is bright and airy, reflecting a clean oceanic professional aesthetic with soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBygBqXcpg_GfPp28BP6JyXl3t1Z0_ql9aDwl-jMHvWg8uBy7z36NoqZvwgjX9o4wTO_XD9cusFHTmUPYCWhwk5spAxQi3m-jcq0YDkoNtylEr-IeGILRlKw4wwihh5au8h--jYLynK4SmUy5xSkrZkbtiFwqY7-eNCc8sc13d9qrvXt0tnpqCknE4-im-Rw69iGMg1gEcVEfGtA-K6JOCnlatN69Ra7h9Z51QSqRIXU9OvV1jpWizZ"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-2 py-1 rounded text-[10px] font-bold text-primary shadow-sm">인기 맛집</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-primary">통영생선회 동성로점</h3>
+<div class="flex items-center text-secondary gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.8</span>
+</div>
+</div>
+<div class="flex items-center text-on-surface-variant text-sm gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                        대구광역시 중구 동성로 12길
+                    </div>
+<button class="w-full py-3 border border-secondary text-secondary font-bold rounded-lg active:bg-secondary/5 transition-colors">상세 보기</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<div class="h-56 relative">
+<img class="w-full h-full object-cover" data-alt="A professional close-up shot of grilled seafood, featuring king prawns and scallops served in their shells, garnished with fresh herbs and lemon. The scene is set in a modern seafood bistro with elegant oceanic blue accents. The lighting is warm yet crisp, emphasizing the texture and freshness of the food, suitable for a high-end culinary guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_EhDiHIPONGhExdaR9Q7gP8bW-LKm4XhAEoYmTaEXTHYs5RFAWzYTBJHKi2SQf0RGNf9UwsbswmResdJILB-nvHr3MLy3rDSoaivaF9wSjPLR1bWdQXZdlcw_917PCIqDM809uZvAmBzXfu6JnWIse4mp60RDkCf4y9n2A5mLBDoKgLpQhyJZ2I6bHcQAgTd09FYS35j1hTfGoO-x46FjJg48lHSsA5JPRHG8qPtb-b3Ux7E2DzZC"/>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-primary">수성못 해물가</h3>
+<div class="flex items-center text-secondary gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.6</span>
+</div>
+</div>
+<div class="flex items-center text-on-surface-variant text-sm gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                        대구광역시 수성구 두산동
+                    </div>
+<button class="w-full py-3 border border-secondary text-secondary font-bold rounded-lg active:bg-secondary/5 transition-colors">상세 보기</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-xl overflow-hidden border border-outline-variant shadow-sm">
+<div class="h-56 relative">
+<img class="w-full h-full object-cover" data-alt="A decadent seafood hot pot, known as Haemultang, overflowing with fresh crab, clams, squid, and seasonal greens in a rich, flavorful broth. The lighting is high-contrast and bright, showcasing the steam rising from the pot. The table setting is minimalist and modern, with deep navy linen and high-quality ceramic bowls, evoking a sense of trust and freshness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvKUx1b7979JWXh5zS7NgSOlpPY1WpMm5FQl9kbVifogOWkH6mrgTNVAI-mpcUvxcvdwEhW6C9fgJnSbCi1EJ9-i4DkdDs2YAT31DA6XzRUBhic0jpQ0yhJiA5ilpvLkeTTrQETmGn5MLpv0Vnj5dvbSHhV9vcAwrBybRkpF0aIvEMA_SfDKPq79zZVhfUkH0NNPmFmff7bv0urppjFeyXyfvbgB4SnCZ48BDvx08FLY5XX3go_BI-"/>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-primary">바다의 향기</h3>
+<div class="flex items-center text-secondary gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.9</span>
+</div>
+</div>
+<div class="flex items-center text-on-surface-variant text-sm gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                        대구광역시 달서구 월성동
+                    </div>
+<button class="w-full py-3 border border-secondary text-secondary font-bold rounded-lg active:bg-secondary/5 transition-colors">상세 보기</button>
+</div>
+</div>
+</section>
+<!-- Local Tips Section -->
+<section class="py-stack-lg bg-primary-container text-white">
+<div class="px-margin-mobile">
+<h2 class="font-headline-md text-headline-md mb-6">Local Expert Tips</h2>
+<div class="space-y-4">
+<div class="p-5 bg-white/5 border border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+<span class="font-bold">가장 맛있는 시간대</span>
+</div>
+<p class="text-sm text-white/70 leading-relaxed">대부분의 횟집은 오후 4시에 새로운 횟감이 들어옵니다. 가장 신선한 맛을 원하신다면 저녁 오픈 직후를 공략하세요.</p>
+</div>
+<div class="p-5 bg-white/5 border border-white/10 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="font-bold">제철 생선 추천</span>
+</div>
+<p class="text-sm text-white/70 leading-relaxed">겨울철에는 대구의 대방어가 별미입니다. 수성구 일대의 방어 전문점들은 예약이 필수이니 미리 확인하세요.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-stack-lg px-margin-mobile bg-white">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">가이드 신청 및 문의</h2>
+<form class="space-y-4">
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-1">성함</label>
+<input class="w-full p-4 bg-surface rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 transition-colors" placeholder="홍길동" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-1">이메일 주소</label>
+<input class="w-full p-4 bg-surface rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 transition-colors" placeholder="example@email.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-bold text-on-surface-variant mb-1">문의 내용</label>
+<textarea class="w-full p-4 bg-surface rounded-xl border border-outline-variant focus:border-secondary focus:ring-0 transition-colors" placeholder="궁금하신 내용을 입력해주세요" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-white font-bold py-4 rounded-xl shadow-lg active:bg-primary transition-colors" type="submit">
+                    메시지 보내기
+                </button>
+</form>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-surface fixed bottom-0 w-full z-50 border-t border-outline-variant shadow-lg flex justify-around items-center h-16 px-margin-mobile pb-safe">
+<a class="flex flex-col items-center justify-center text-secondary font-bold scale-95 active:scale-90 transition-transform font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 active:scale-90 transition-transform font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span>Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 active:scale-90 transition-transform font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="tips_and_updates">tips_and_updates</span>
+<span>Tips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary scale-95 active:scale-90 transition-transform font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+</nav>
+<script>
+        const drawer = document.getElementById('nav-drawer');
+        const overlay = document.getElementById('drawer-overlay');
+
+        function toggleDrawer() {
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('opacity-0');
+            overlay.classList.toggle('pointer-events-none');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        // Close drawer when clicking outside
+        overlay.addEventListener('click', toggleDrawer);
+
+        // Simple scroll behavior for header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-md');
+            } else {
+                header.classList.add('shadow-md');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

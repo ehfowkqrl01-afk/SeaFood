@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="대구 시내 해산물 맛집을 한곳에서 만나보세요. 신선한 회, 조개구이, 해물탕까지." name="description"/>
+<title>대구 해산물 맛집 가이드</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#001f3f", // Deep Navy
+            "secondary": "#4597fe", // Azure
+            "tertiary": "#004d62", // Aqua/Abyssal Teal
+            "on-primary": "#ffffff",
+            "surface": "#f7f9fb",
+            "surface-container": "#eceef0",
+            "outline": "#74777f",
+            "accent-light": "#baeaff", // Light Azure
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          fontFamily: {
+            "display": ["Playfair Display", "serif"],
+            "sans": ["Noto Sans KR", "sans-serif"],
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #f7f9fb;
+      color: #191c1e;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .font-display { font-family: 'Playfair Display', serif; }
+    
+    /* Glassmorphic Header */
+    .glass-header {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Hero Section with DataStore Image */
+    .hero-bg-custom {
+      background-image: linear-gradient(to bottom, rgba(0, 31, 63, 0.6), rgba(0, 31, 63, 0.8)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBF56sj7ef7O3GD6gIQnNjeTE-JxQ86VzTZaAlJ-BznZvfL2vgYdK4uJiouOuT_YNub002ltFD2FOGyizXg6Ifnj66l8B_BCXKcN9KERnyiygZLIjp7qDyI7Sfkdmwk7SWQ4LkDKzZF4566-ShJwqvuPmzZDRS_cCXkkhDgovAzdBTSLdMVobLzuvLjSVtBHJDgD14dGwPgc_kbL74XhaI7cyOkLBsp0TuC90ycjH7NWzyEpC5-hX6Z');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Wave Divider Pattern */
+    .wave-divider {
+      position: relative;
+      height: 60px;
+      width: 100%;
+      background: #f7f9fb;
+    }
+    .wave-divider::before {
+      content: "";
+      position: absolute;
+      top: -59px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f7f9fb' fill-opacity='1' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    /* Custom Card Hover Effects */
+    .restaurant-card {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    }
+    .restaurant-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 31, 63, 0.1), 0 10px 10px -5px rgba(0, 31, 63, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-surface text-primary">
+<header class="fixed top-0 left-0 w-full z-50 glass-header" id="header">
+<div class="container mx-auto px-6 h-20 flex items-center justify-between">
+<a class="text-2xl font-display font-bold tracking-tighter text-primary" href="#home">DAEGU<span class="text-secondary">SEA</span></a>
+<nav class="hidden md:flex space-x-8">
+<a class="text-sm font-medium hover:text-secondary transition-colors" href="#home">홈</a>
+<a class="text-sm font-medium hover:text-secondary transition-colors" href="#about">소개</a>
+<a class="text-sm font-medium hover:text-secondary transition-colors" href="#restaurants">맛집</a>
+<a class="text-sm font-medium hover:text-secondary transition-colors" href="#tips">꿀팁</a>
+<a class="text-sm font-medium hover:text-secondary transition-colors" href="#contact">문의</a>
+</nav>
+<button aria-label="메뉴 열기" class="md:hidden text-primary p-2" id="menuToggle">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</header>
+<main>
+<section class="relative h-screen min-h-[700px] flex items-center hero-bg-custom overflow-hidden" id="home">
+<div class="container mx-auto px-6 relative z-10 pt-20">
+<div class="max-w-3xl">
+<p class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-accent-light border border-accent-light/30 rounded-full bg-primary/20 backdrop-blur-sm">DAEGU SEAFOOD GUIDE 2026</p>
+<h1 class="text-5xl md:text-7xl font-display font-bold text-white leading-[1.1] mb-6">
+            바다의 신선함,<br/><span class="text-accent-light">대구</span>에서 만나다
+          </h1>
+<p class="text-lg md:text-xl text-white/80 mb-10 leading-relaxed font-light">
+            동성로 골목부터 수성못, 칠곡 수산시장까지.<br/>
+            대구 시민이 사랑하는 해산물 맛집 6곳을 엄선했습니다.
+          </p>
+<div class="flex flex-wrap gap-4 mb-16">
+<a class="px-8 py-4 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20" href="#restaurants">맛집 둘러보기</a>
+<a class="px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 backdrop-blur-sm transition-all" href="#about">가이드 소개</a>
+</div>
+<div class="flex gap-12 border-t border-white/10 pt-8">
+<div class="text-white">
+<strong class="block text-3xl font-display font-bold mb-1">6</strong>
+<span class="text-xs text-white/60 tracking-wider">엄선 맛집</span>
+</div>
+<div class="text-white">
+<strong class="block text-3xl font-display font-bold mb-1">4</strong>
+<span class="text-xs text-white/60 tracking-wider">지역 구역</span>
+</div>
+<div class="text-white">
+<strong class="block text-3xl font-display font-bold mb-1">98%</strong>
+<span class="text-xs text-white/60 tracking-wider">만족도</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 animate-bounce">
+<span class="text-[10px] tracking-[0.2em] uppercase font-bold">Scroll</span>
+<div class="w-px h-8 bg-gradient-to-b from-white/50 to-transparent"></div>
+</div>
+</section>
+<div class="wave-divider"></div>
+<section class="py-24 bg-surface" id="about">
+<div class="container mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<div>
+<span class="text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">WHY DAEGU SEAFOOD</span>
+<h2 class="text-4xl md:text-5xl font-display font-bold text-primary leading-tight">내륙 도시 대구,<br/>왜 해산물이 맛있을까?</h2>
+</div>
+<p class="text-lg text-primary/70 leading-relaxed">
+              대구는 부산·통영·포항 등 주요 항구와 연결된 물류망 덕분에 매일 아침 신선한 해산물이 도착합니다. 특히 칠곡 수산시장과 동성로 일대는 회·조개·해물탕 전문점이 밀집해 있어 현지인과 관광객 모두에게 사랑받는 먹거리 명소입니다.
+            </p>
+<ul class="grid sm:grid-cols-2 gap-4">
+<li class="flex items-center gap-3 text-primary font-medium">
+<span class="w-6 h-6 flex items-center justify-center bg-accent-light text-primary rounded-full text-xs">✓</span>
+                당일 입고 신선 회·조개류
+              </li>
+<li class="flex items-center gap-3 text-primary font-medium">
+<span class="w-6 h-6 flex items-center justify-center bg-accent-light text-primary rounded-full text-xs">✓</span>
+                합리적인 가격의 코스
+              </li>
+<li class="flex items-center gap-3 text-primary font-medium">
+<span class="w-6 h-6 flex items-center justify-center bg-accent-light text-primary rounded-full text-xs">✓</span>
+                다양한 좌석 구성
+              </li>
+<li class="flex items-center gap-3 text-primary font-medium">
+<span class="w-6 h-6 flex items-center justify-center bg-accent-light text-primary rounded-full text-xs">✓</span>
+                현지인 단골 위주 선정
+              </li>
+</ul>
+</div>
+<div class="grid gap-6">
+<article class="bg-white p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+<span class="text-3xl mb-4 block">🐟</span>
+<h3 class="text-xl font-bold mb-2">신선도 중심</h3>
+<p class="text-primary/60">새벽 경매 산지 직송으로 당일 회전율이 높은 매장만 선정했습니다.</p>
+</article>
+<article class="bg-white p-8 rounded-xl shadow-sm border border-surface-container hover:shadow-md transition-shadow">
+<span class="text-3xl mb-4 block">📍</span>
+<h3 class="text-xl font-bold mb-2">교통 접근성</h3>
+<p class="text-primary/60">지하철·버스로 이동하기 쉬운 시내 중심 및 주요 거주 지역 위주입니다.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 bg-white relative overflow-hidden" id="restaurants">
+<!-- Background pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none">
+<svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern height="40" id="dots" patternunits="userSpaceOnUse" width="40"><circle cx="2" cy="2" fill="#001f3f" r="2"></circle></pattern></defs>
+<rect fill="url(#dots)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">RESTAURANTS</span>
+<h2 class="text-4xl md:text-5xl font-display font-bold text-primary mb-6">대구 해산물 맛집 6선</h2>
+<p class="text-primary/60">지역별로 필터링해서 원하는 분위기의 맛집을 찾아보세요.</p>
+</div>
+<div aria-label="지역 필터" class="flex flex-wrap justify-center gap-3 mb-16" id="filterBar" role="tablist">
+<button class="px-6 py-2 rounded-full border border-surface-container font-medium text-sm transition-all hover:border-secondary active-filter bg-primary text-white" data-filter="all">전체</button>
+<button class="px-6 py-2 rounded-full border border-surface-container font-medium text-sm transition-all hover:border-secondary text-primary" data-filter="중구">중구·동성로</button>
+<button class="px-6 py-2 rounded-full border border-surface-container font-medium text-sm transition-all hover:border-secondary text-primary" data-filter="수성구">수성구</button>
+<button class="px-6 py-2 rounded-full border border-surface-container font-medium text-sm transition-all hover:border-secondary text-primary" data-filter="달서구">달서구</button>
+<button class="px-6 py-2 rounded-full border border-surface-container font-medium text-sm transition-all hover:border-secondary text-primary" data-filter="북구">북구·칠곡</button>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="restaurantGrid">
+<!-- Card 1 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="중구">
+<div class="relative h-64 overflow-hidden">
+<img alt="통영생선회" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvcx-qdIxrATaYLsqIbLVu1Tt_AsXn51JUz-gsI7lYL0dRvyHlFXpbHxujQ_eT6NgyNqml4nttJe03CQBBaLxL7lc_4cnE8MMKVMGoKKLBgRE3sPS3R-Z_oYgJT4Uaoe78qJgXy52Jlh7cjsPS0AWM54Xl08_sZVBDx90c2dxyJHVxIz17WCyHkcWDTHyOygoqohKql7xhjtsxIzrIu-O4aUYlk81lztQgJPzBN-9gXBDlsRSYOmBv"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">회·사시미</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">중구 동성로</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.8</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">통영생선회 동성로점</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">대구 동성로 대표 횟집. 제철 회와 모듬 사시미가 풍성하고, 2인 세트부터 합리적인 가격대가 강점입니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">1인 ₩25,000~</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="수성구">
+<div class="relative h-64 overflow-hidden">
+<img alt="수성못 해물왕" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLSfymGY3mE40JYmgLPRUoKETvaFt37xZVwAV5IeR-BHYX2r7NbfTWFfJEiufYbb3ttTTKTZ-a-W1rXpYF7aSioM0b9YacS4cWj8iupRMJdC2LgZEG74cVwbbifzchlBzE759LITcg0cGrEKEigmRY0yNW4C2O4IFy7MKycuRlQSzT08OVduGmxl7KEo9QQaYjJdNDW-pxT7n7CmlgWbxN_gLVZ88mAYdyRiuFYYfNRcD2H8sQ6D-x"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">해물탕·찜</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">수성구 범어동</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.7</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">수성못 해물왕</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">수성못 근처에서 가족 외식하기 좋은 해물탕·해물찜 전문점. 국물이 진하고 해산물 양이 넉넉합니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">2인 ₩45,000~</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="북구">
+<div class="relative h-64 overflow-hidden">
+<img alt="칠곡수산시장" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc7Q_ahPXGSN46oCNPf3fmUdjS5Sg1ArObXfZ787bM79ThWmkIgx4YfzvPl0BB5FkOp-Z2MiFoFO5dWCIWlVcj2TB-TwUCyZofg3DCpwS8T0n77aIuG9LVcfKo19tdd1GozBazCK4Gi_TleqE8aRg3lJIfLTg56I2pzGJn3JOJJDw7AUuq9laIao-tq1_DK4gBb_FU3VOipVSvYVqm9kEwdH2o3_vGB1FRlBeANG4eIX-8W8diG_br"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">수산시장</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">북구 칠곡</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.9</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">칠곡수산시장 회센터</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">칠곡 3지구 수산시장 안의 회센터. 직접 고른 활어로 즉석 회를 떠주며, 현지인들의 단골 비율이 높습니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">시세 변동</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="달서구">
+<div class="relative h-64 overflow-hidden">
+<img alt="조개마을" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRUX52MSBMnPGkVA6LLzDzm7s9q9YDK98QgO6ob0_BcensOrzj2YXlNKuO4nBJaUiIX7p2k7A90du-4AvDbukFYVjlWge7AopmhIQcUR9WhO3D3acQYtoHuYYo5L6Os1Bsp1jhNdTykH-ab8tm_tCkc1r7e35EK3rOdaMmzL3G-B_cjsC-ONrHkCkTAFWeMK3NRbLjv7biSgyrQhWDUGzp29pDfaA5pcWK1e1NoRe8DxAH8dwvp4sc"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">조개·구이</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">달서구 월성동</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.6</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">조개마을 월성점</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">조개구이와 해물파전이 시그니처. 숯불 향이 살아있는 조개구이와 함께 소주 한잔하기 좋은 분위기입니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">1인 ₩20,000~</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="중구">
+<div class="relative h-64 overflow-hidden">
+<img alt="바다밥상" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPx6eI6WG_JxJuH-nrGzO9FpJ2mzqsuDa6wfEGHKEzX3TsnqEZ957I-RY1hAQh421bbRMDmQVfHINlWEh-5WHioi0pHf708UTHXiBRGdFRdFswv4jBBRYo8Qy1gBI3Qna9n_6AwkdKuR_lPQlTDP9be18A5J1B1Kj-aeE6ugjb-tJdMkIWOmPfWrvxshJoVDom9pJiZWLrXtTIaBhI6hpZEW1GdtgX8kdXf_g18O2EkzcXUuG_WvbD"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">일식·회덮밥</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">중구 반월당</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.5</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">바다밥상 반월당</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">점심 회덮밥과 저녁 사시미 정식이 인기. 깔끔한 일식 스타일로 혼밥·데이트 모두 무난합니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">점심 ₩12,000~</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="restaurant-card bg-white rounded-xl overflow-hidden border border-surface-container flex flex-col group" data-area="수성구">
+<div class="relative h-64 overflow-hidden">
+<img alt="킹크랩 수성" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgo7FT7vFPrz-GrL-tMdfoy5bWEczOpLtWTx5yi-uxnNOGDXO1FX7ckOc2MRH0ehiVM1B_rDwuBeLlT6MQKLKJxQ94xdZE1607IbJSKoi_g0sBkmqjzOsSc21ZkRZLkEZqUgjgXbyo4a0rYT7PIESJjAIQb5i4h-4soBDSuUpkh0z1fX-oA4Z_4PuxI7BV6GTg48XryA8v5J9tCNn7vycbjm7MhfNcnlCNM008RwNTw3oO10x8nhIs"/>
+<span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest uppercase rounded">대게·랍스터</span>
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-bold text-secondary">수성구 만촌동</span>
+<span class="flex items-center text-xs font-bold text-amber-500">★ 4.8</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-primary mb-4">킹크랩 수성</h3>
+<p class="text-primary/70 text-sm leading-relaxed mb-6">특별한 날 방문하기 좋은 대게·킹크랩 전문점. 코스 메뉴와 단품 주문 모두 가능하며, 단체석 예약을 추천합니다.</p>
+<div class="mt-auto pt-6 border-t border-surface-container flex items-center justify-between">
+<span class="text-sm font-bold text-primary">2인 ₩80,000~</span>
+<button class="text-sm font-bold text-secondary hover:underline">상세 보기 →</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="py-24 bg-surface relative overflow-hidden" id="tips">
+<!-- Decorative circle -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-accent-light/10 rounded-full blur-3xl"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="mb-16">
+<span class="text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">LOCAL TIPS</span>
+<h2 class="text-4xl md:text-5xl font-display font-bold text-primary">대구 해산물 맛집 꿀팁</h2>
+</div>
+<div class="grid lg:grid-cols-3 gap-8">
+<article class="bg-white/50 backdrop-blur-sm border border-surface-container p-10 rounded-2xl">
+<span class="text-4xl font-display font-bold text-secondary/30 mb-6 block">01</span>
+<h3 class="text-xl font-bold mb-4">방문 시간</h3>
+<p class="text-primary/70 leading-relaxed">회 전문점은 점심·저녁 피크 시간(12~13시, 18~20시)에 웨이팅이 길 수 있습니다. 수산시장 회센터는 오전 10~12시가 가장 신선합니다.</p>
+</article>
+<article class="bg-white/50 backdrop-blur-sm border border-surface-container p-10 rounded-2xl">
+<span class="text-4xl font-display font-bold text-secondary/30 mb-6 block">02</span>
+<h3 class="text-xl font-bold mb-4">예약 여부</h3>
+<p class="text-primary/70 leading-relaxed">대게·킹크랩 전문점과 4인 이상 단체 방문 시 사전 예약을 권장합니다. 동성로 일대는 주말 저녁 예약 없이 가면 대기가 길어질 수 있습니다.</p>
+</article>
+<article class="bg-white/50 backdrop-blur-sm border border-surface-container p-10 rounded-2xl">
+<span class="text-4xl font-display font-bold text-secondary/30 mb-6 block">03</span>
+<h3 class="text-xl font-bold mb-4">교통·주차</h3>
+<p class="text-primary/70 leading-relaxed">동성로·반월당은 지하철 1·2호선 이용이 편리합니다. 칠곡 수산시장은 자가용 이용 시 주차장이 넓어 방문하기 좋습니다.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="py-24 bg-primary text-white" id="contact">
+<div class="container mx-auto px-6">
+<div class="grid lg:grid-cols-2 gap-20 items-center">
+<div>
+<span class="text-sm font-bold text-accent-light tracking-widest uppercase mb-4 block">CONTACT</span>
+<h2 class="text-4xl md:text-5xl font-display font-bold mb-6">맛집 제보 &amp; 문의</h2>
+<p class="text-white/60 text-lg mb-8">빠진 맛집이 있거나 정보 수정이 필요하면 알려주세요. 여러분의 소중한 제보가 가이드를 풍성하게 만듭니다.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">📧</div>
+<span class="text-white/80">guide@daegusea.com</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">📞</div>
+<span class="text-white/80">053-123-4567</span>
+</div>
+</div>
+</div>
+<form class="bg-white p-8 md:p-10 rounded-2xl shadow-2xl" id="contactForm">
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary tracking-widest uppercase" for="name">이름</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface border-none focus:ring-2 focus:ring-secondary text-primary" id="name" name="name" placeholder="홍길동" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary tracking-widest uppercase" for="email">이메일</label>
+<input class="w-full px-4 py-3 rounded-lg bg-surface border-none focus:ring-2 focus:ring-secondary text-primary" id="email" name="email" placeholder="example@email.com" required="" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold text-primary tracking-widest uppercase" for="message">메시지</label>
+<textarea class="w-full px-4 py-3 rounded-lg bg-surface border-none focus:ring-2 focus:ring-secondary text-primary" id="message" name="message" placeholder="추천 맛집이나 수정 사항을 적어주세요." required="" rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-secondary text-white font-bold rounded-lg hover:bg-secondary/90 transition-all" type="submit">메시지 보내기</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="py-12 border-t border-surface-container bg-surface">
+<div class="container mx-auto px-6 text-center">
+<p class="text-2xl font-display font-bold text-primary mb-4">DAEGU<span class="text-secondary">SEA</span></p>
+<p class="text-primary/40 text-sm mb-6">© 2026 Daegu Seafood Guide. All rights reserved.</p>
+<div class="flex justify-center gap-6">
+<a class="text-primary/40 hover:text-secondary" href="#">Instagram</a>
+<a class="text-primary/40 hover:text-secondary" href="#">Blog</a>
+<a class="text-primary/40 hover:text-secondary" href="#">Terms</a>
+</div>
+</div>
+</footer>
+<script>
+    // Simple filter logic
+    document.querySelectorAll('[data-filter]').forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        
+        // UI State
+        document.querySelectorAll('[data-filter]').forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-white');
+          btn.classList.add('text-primary');
+        });
+        button.classList.add('bg-primary', 'text-white');
+        button.classList.remove('text-primary');
+
+        // Filter cards
+        document.querySelectorAll('.restaurant-card').forEach(card => {
+          if (filter === 'all' || card.dataset.area === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Simple scroll header effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-lg');
+      } else {
+        header.classList.remove('shadow-lg');
+      }
+    });
+  </script>
+</body></html>
