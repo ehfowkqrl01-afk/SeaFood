@@ -1417,6 +1417,314 @@ body {
   fill: currentColor;
 }
 
+/* Daegu food list page */
+.food-page .food-hero {
+  padding: 8rem 0 4rem;
+  background: linear-gradient(160deg, var(--primary) 0%, var(--secondary-dark) 55%, var(--secondary) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.food-page .food-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+.food-page .food-hero h1 em {
+  font-style: normal;
+  color: var(--accent-light);
+}
+
+.food-page .food-hero .hero-desc {
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+  opacity: 0.92;
+}
+
+.food-back-link {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.food-back-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--white);
+  border: 2px solid var(--secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+}
+
+.food-list-section {
+  padding-top: 3rem;
+}
+
+.food-district-bar {
+  margin-bottom: 2rem;
+}
+
+.food-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.food-search-wrap {
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+.food-search {
+  width: 100%;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid var(--surface-container);
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--white);
+  transition: border-color var(--transition);
+}
+
+.food-search:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(69, 151, 254, 0.15);
+}
+
+.food-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.food-status,
+.food-error {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.food-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--surface-container);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: food-spin 0.8s linear infinite;
+}
+
+@keyframes food-spin {
+  to { transform: rotate(360deg); }
+}
+
+.food-error p {
+  margin-bottom: 1rem;
+  color: #b42318;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.food-card {
+  display: flex;
+  gap: 1rem;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 32px -8px rgba(0, 31, 63, 0.14);
+}
+
+.food-card-thumb {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  background: linear-gradient(135deg, var(--accent-light), rgba(69, 151, 254, 0.25));
+  border-radius: var(--radius-md);
+}
+
+.food-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.food-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+}
+
+.food-card-category {
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.food-card-hours {
+  color: var(--text-muted);
+}
+
+.food-card-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.food-card-address {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.food-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.food-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-muted);
+}
+
+.food-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.food-pagination span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.food-api-note {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--outline);
+}
+
+.food-api-note a {
+  color: var(--secondary-dark);
+}
+
+.food-modal-content {
+  max-width: 560px;
+}
+
+.food-modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.food-modal-desc {
+  margin-bottom: 1.25rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.food-detail-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.food-detail-list div {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.food-detail-list dt {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.food-detail-list dd {
+  color: var(--text-muted);
+  word-break: keep-all;
+}
+
+.food-modal-menu h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.food-menu-list {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.food-modal-link {
+  margin-top: 1rem;
+}
+
+.food-modal-link a {
+  color: var(--secondary-dark);
+  font-weight: 600;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-detail-list div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .menu-toggle {

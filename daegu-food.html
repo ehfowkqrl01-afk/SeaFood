@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="대구광역시 구·군별 공식 맛집 정보를 한곳에서 검색하세요. 대구푸드 오픈 API 연동.">
+  <title>대구광역시 맛집 | DAEGU SEA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="food-page">
+  <header class="header glass-header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">DAEGU<span>SEA</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">해산물 가이드</a>
+        <a href="daegu-food.html" class="nav-link active">대구 맛집</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="food-hero">
+      <div class="container">
+        <p class="hero-badge">DAEGU FOOD OPEN API</p>
+        <h1>대구광역시 <em>맛집</em> 탐색</h1>
+        <p class="hero-desc">
+          대구푸드 공식 오픈 API로 구·군별 인증 맛집 정보를 실시간으로 불러옵니다.<br>
+          원하는 지역을 선택하고 맛집을 찾아보세요.
+        </p>
+        <a href="index.html" class="btn btn-outline food-back-link">← 해산물 가이드로 돌아가기</a>
+      </div>
+    </section>
+
+    <section class="section food-list-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">DISTRICT</span>
+          <h2>구·군 선택</h2>
+          <p id="districtHint">지역을 선택하면 해당 구역의 맛집 목록이 표시됩니다.</p>
+        </div>
+
+        <div class="filter-bar food-district-bar" id="districtBar" role="tablist" aria-label="구·군 선택">
+          <!-- JS renders district buttons -->
+        </div>
+
+        <div class="food-toolbar">
+          <div class="food-search-wrap">
+            <label for="foodSearch" class="visually-hidden">맛집 검색</label>
+            <input type="search" id="foodSearch" class="food-search" placeholder="음식점명, 음식 종류, 주소로 검색…" autocomplete="off">
+          </div>
+          <p class="food-count" id="foodCount" aria-live="polite"></p>
+        </div>
+
+        <div class="food-status" id="foodStatus" hidden>
+          <div class="food-spinner" aria-hidden="true"></div>
+          <p>맛집 정보를 불러오는 중…</p>
+        </div>
+
+        <div class="food-error" id="foodError" hidden role="alert">
+          <p id="foodErrorMsg"></p>
+          <button type="button" class="btn btn-primary" id="foodRetryBtn">다시 시도</button>
+        </div>
+
+        <div class="food-grid" id="foodGrid" aria-live="polite"></div>
+
+        <div class="food-pagination" id="foodPagination" hidden>
+          <button type="button" class="btn btn-outline" id="foodPrevBtn" disabled>이전</button>
+          <span id="foodPageInfo"></span>
+          <button type="button" class="btn btn-outline" id="foodNextBtn">다음</button>
+        </div>
+
+        <p class="food-api-note">
+          데이터 출처: <a href="https://www.daegufood.go.kr" target="_blank" rel="noopener noreferrer">대구푸드(daegufood.go.kr)</a> 오픈 API
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">DAEGU<span>SEA</span></p>
+      <p class="footer-copy">&copy; 2026 Daegu Seafood Guide. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">해산물 가이드</a>
+        <a href="https://www.daegufood.go.kr" target="_blank" rel="noopener noreferrer">대구푸드</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="foodModal" aria-hidden="true">
+    <div class="modal-backdrop" id="foodModalBackdrop"></div>
+    <div class="modal-content food-modal-content" role="dialog" aria-labelledby="foodModalTitle">
+      <button class="modal-close" id="foodModalClose" aria-label="닫기">&times;</button>
+      <h3 id="foodModalTitle">맛집 정보</h3>
+      <div id="foodModalBody" class="modal-body food-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="daegu-food.js"></script>
+</body>
+</html>
